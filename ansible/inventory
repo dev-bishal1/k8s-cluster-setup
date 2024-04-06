@@ -1,6 +1,6 @@
-master ansible_host=192.168.1.96
-node01 ansible_host=192.168.1.97
-node02 ansible_host=192.168.1.100
+master ansible_host=192.168.1.78
+node01 ansible_host=192.168.1.91
+node02 ansible_host=192.168.1.96
 
 [k8s_cluster]
 master
@@ -15,5 +15,6 @@ node01
 node02
 
 [k8s_cluster:vars]
-ansible_user=root 
-ansible_ssh_private_key_file=~/.ssh/id_rsa
+ansible_user=vagrant
+ansible_ssh_pass=vagrant
+; ansible_ssh_private_key_file=~/.ssh/id_rsa
