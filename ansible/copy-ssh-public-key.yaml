@@ -1,6 +1,11 @@
-- name: Set authorized key taken from file
+- name: Update authorized key
   hosts: k8s_cluster
-  ansible.posix.authorized_key:
-    user: vagrant
-    state: present
-    key: "{{ lookup('file', '/home/netwon/.ssh/ansible.pub') }}"
+  remote_user: vagrant
+  
+  tasks:
+  - name: Set authorized key taken from file
+    hosts: k8s_cluster
+    ansible.posix.authorized_key:
+      user: vagrant
+      state: present
+      key: "{{ lookup('file', '/home/netwon/.ssh/ansible.pub') }}"
