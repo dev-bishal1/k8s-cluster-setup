@@ -1,2 +1,5 @@
-mkdir ~/.ssh
-cat public-key.txt >> authorized_keys
+mkdir /root/.ssh
+cd /root/.ssh
+
+# please replace this public key with your ansible control server public key
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQClrV4P7vIrIcMcKN42Fzk0gqTyvYs+6foJzwXM4O1kAo5eECW48Om1GSAfH7xZE9bCOdP2/eBn0suNMlsiiqWaPI6BYBbcX66bAk3rzl8gmZec1X+wNt/482EWvQG1xnlgufRY3dE3w08FEy7/V5HHbjbjTay7S1UlFMXtPMkM010DOePc36T4cYbHMgLMYylEC5gfAbhkEVGSxzo8wkqLrr+0n/polGb3jEXfO+XWVLG6Ml2EN5lwifLYCZuhSv/mTLOs2Tau7NQFEX4jj21TkYxL49snqEpe86tDkfiQfzMm/2ImqAut1PortBsPUm4HK+wbOnreHUktiathg2CaqFzrmub7Wnf5ejvnYfsl+O48TJTZE6wk+vd54kP0Tib7r5tww4W/cimLETjnzmWJaWPFqhTgwIwP9cye1CBHgA/MOL0DYF5nFR0jVmoF4kGP6FcHD7P6Tth74WSM7vu5WjB7NfuFoq/0c5VEqNjlslLEwkqa782Cot+ufEqJl1M= netwon@fedora" >> authorized_keys
