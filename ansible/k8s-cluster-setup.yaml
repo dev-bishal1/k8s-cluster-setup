@@ -19,6 +19,6 @@
     - name: Execute the script file that will install all the k8s related dependency
       ansible.builtin.shell:
         chdir: /home/vagrant/k8s-setup
-        cmd: ./install-k8s.sh
+        cmd: sudo ./install-k8s.sh
       args:
         executable: /bin/bash
