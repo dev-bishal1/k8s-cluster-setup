@@ -4,10 +4,10 @@
   tasks:
     - name: Copy kubernetes setup file to all remote machines
       ansible.builtin.copy:
-      src: ./file/install-k8s.sh
-      dest: /home/vagrant/k8s-setup
-      owner: vagrant
-      mode: "0744"
+        src: ./file/install-k8s.sh
+        dest: /home/vagrant/k8s-setup
+        owner: vagrant
+        mode: "0744"
 
     - name: Execute the script file that will install all the k8s related dependency
       ansible.builtin.script: /home/vagrant/k8s-setup/install-k8s.sh
