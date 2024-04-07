@@ -1,4 +1,4 @@
-master ansible_host=192.168.1.78
+master ansible_host=192.168.1.71
 node01 ansible_host=192.168.1.91
 node02 ansible_host=192.168.1.96
 
