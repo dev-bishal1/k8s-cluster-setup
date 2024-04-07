@@ -2,6 +2,13 @@
   hosts: k8s_cluster
 
   tasks:
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: /home/vagrant/k8s-setup
+        state: directory
+        mode: '0755'
+        owner: vagrant
+
     - name: Copy kubernetes setup file to all remote machines
       ansible.builtin.copy:
         src: ./file/install-k8s.sh
