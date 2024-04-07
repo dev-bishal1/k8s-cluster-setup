@@ -34,14 +34,15 @@ echo \
 sudo apt-get update -y
 
 # Install container run time environment
-apt-get install containerd.io -y
+sudo apt-get install containerd.io -y
 
 
 # kubernetes related installation
-apt-get install -y apt-transport-https ca-certificates curl gpg
+sudo rm -f /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+sudo apt-get install -y apt-transport-https ca-certificates curl gpg
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
-apt-get update -y
-apt-get install -y apt-transport-https
-apt-get install -y kubelet kubeadm kubectl
-apt-mark hold kubelet kubeadm kubectl
+sudo apt-get update -y
+sudo apt-get install -y apt-transport-https
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
