@@ -1,6 +1,7 @@
 ---
 - name: Configure server to make it k8s cluster
   hosts: k8s_cluster
+  become: yes
 
   tasks:
     - name: Copy change hostname script file to all the remote machine
