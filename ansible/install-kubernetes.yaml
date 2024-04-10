@@ -1,0 +1,24 @@
+- name: k8s cluster setup
+  hosts: k8s_cluster
+
+  tasks:
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: /home/vagrant/k8s-setup
+        state: directory
+        mode: '0755'
+        owner: vagrant
+
+    - name: Copy kubernetes setup file to all remote machines
+      ansible.builtin.copy:
+        src: ./file/install-k8s.sh
+        dest: /home/vagrant/k8s-setup
+        owner: vagrant
+        mode: "0744"
+
+    - name: Execute the script file that will install all the k8s related dependency
+      ansible.builtin.shell:
+        chdir: /home/vagrant/k8s-setup
+        cmd: sudo ./install-k8s.sh {{ hostname }}
+      args:
+        executable: /bin/bash
