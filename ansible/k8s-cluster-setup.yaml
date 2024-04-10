@@ -27,11 +27,10 @@
         - Restart containerd
 
     - name: Disable swap in all machine
-      ansible.builtin.lineinfile:
+      ansible.builtin.replace:
         path: /etc/fstab
-        insertbefore: BOF
-        line: "#\g<line>"
         regexp: "^(\/dev\/mapper\/vgvagrant-swap_1)"
+        replace: "# \1"
         backup: true
 
   handlers:
