@@ -8,7 +8,7 @@
       src: ./file/change-hostname.sh
       dest: /home/vagrant/k8s-setup
       owner: vagrant
-      mod: "0744"
+      mode: "0744"
   
   - name: Execute hostname change script
     ansible.builtin.shell:
