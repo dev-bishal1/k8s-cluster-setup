@@ -31,8 +31,7 @@
         path: /etc/fstab
         regexp: "^(\/dev\/mapper\/vgvagrant-swap_1)"
         backup: true
-        backrefs: yes
-        replace: "# {{ match }}"
+        line: "# /dev/mapper/vgvagrant-swap_1"
 
   handlers:
     - name: Restart containerd
