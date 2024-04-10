@@ -21,8 +21,7 @@
       ansible.builtin.lineinfile:
         path: /etc/containerd/config.toml
         regexp: "^disabled_plugins="
-        line: "# \1"
-        backrefs: yes
+        line: "# disabled_plugins= ['cri']"
         backup: true
       notify:
         - Restart containerd
@@ -30,9 +29,9 @@
     - name: Disable swap in all machine
       ansible.builtin.lineinfile:
         path: /etc/fstab
-        regexp: "^/dev/mapper/vgvagrant-swap_1"
-        line: "# \1"
-        backrefs: yes
+        insertbefore: BOF
+        line: "#\g<line>"
+        regexp: "^(\/dev\/mapper\/vgvagrant-swap_1)"
         backup: true
 
   handlers:
