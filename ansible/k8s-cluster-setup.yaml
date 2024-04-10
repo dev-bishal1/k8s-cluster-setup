@@ -21,8 +21,8 @@
     - name: Disable CRI plugin in all machine
       ansible.builtin.lineinfile:
         path: /etc/containerd/config.toml
-        regexp: "^disabled_plugins="
-        line: "# disabled_plugins= ['cri']"
+        regexp: "^disabled_plugins"
+        line: "# disabled_plugins = ['cri']"
         backup: true
       notify:
         - Restart containerd
