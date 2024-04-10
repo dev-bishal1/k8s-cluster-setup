@@ -15,5 +15,5 @@ else
     echo "Line '$line_to_comment' not found in $fstab_file."
 fi
 
-# temporary disable
+# temporary disables
 sudo swapoff -a
