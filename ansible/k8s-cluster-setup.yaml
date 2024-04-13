@@ -34,6 +34,10 @@
         backup: true
         line: "# /dev/mapper/vgvagrant-swap_1"
 
+    - name: Disable swap temporarly
+      ansible.builtin.command:
+        cmd: sudo swapoff -a
+
   handlers:
     - name: Restart containerd
       ansible.builtin.service:
