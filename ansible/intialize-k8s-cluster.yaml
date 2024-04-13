@@ -2,12 +2,12 @@
   hosts: k8s_master_nodes
 
   tasks:
-    - name: Create a directory if it does not exist
-      ansible.builtin.file:
-        path: /home/vagrant/k8s-setup
-        state: directory
-        mode: "0755"
-        owner: vagrant
+    # - name: Create a directory if it does not exist
+    #   ansible.builtin.file:
+    #     path: /home/vagrant/k8s-setup
+    #     state: directory
+    #     mode: "0755"
+    #     owner: vagrant
 
     - name: Copy k8s intialize file to the master k8s_master_nodes
       ansible.builtin.copy:
