@@ -1,0 +1,18 @@
+- name: Initialize k8s cluster
+  hosts: k8s_master_nodes
+  become: true
+
+  tasks:
+    - name: Copy k8s intialize file to the master k8s_master_nodes
+      ansible.builtin.copy:
+        src: ./file/kubeadm-init.sh
+        dest: /home/vagrant/k8s-setup
+        owner: vagrant
+        mode: "0744"
+
+    - name: Run the script that will intialize k8s cluster
+      ansible.builtin.shell:
+        chdir: /home/vagrant/k8s-setup
+        cmd: ./kubeadm-init.sh
+      args:
+        executable: /bin/bash
