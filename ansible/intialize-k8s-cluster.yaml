@@ -3,6 +3,7 @@
   become: true
 
   tasks:
+  
     - name: Copy k8s intialize file to the master k8s_master_nodes
       ansible.builtin.copy:
         src: ./file/kubeadm-init.sh
