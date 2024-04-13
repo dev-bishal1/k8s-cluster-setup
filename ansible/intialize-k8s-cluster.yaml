@@ -3,10 +3,11 @@
   become: true
 
   tasks:
+  
     - name: Copy k8s intialize file to the master k8s_master_nodes
       ansible.builtin.copy:
         src: ./file/kubeadm-init.sh
-        dest: /home/vagrant/k8s-setup
+        dest: /home/vagrant/k8s-setup/
         owner: vagrant
         mode: "0744"
 
