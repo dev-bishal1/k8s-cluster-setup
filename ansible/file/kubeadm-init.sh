@@ -1,4 +1,5 @@
 #!/bin/bash
+cd $HOME
 sudo systemctl restart kubelet
 sudo kubeadm init --apiserver-advertise-address=192.168.33.17 --pod-network-cidr=10.244.0.0/16 &> cluster-setup.txt
 mkdir -p $HOME/.kube
