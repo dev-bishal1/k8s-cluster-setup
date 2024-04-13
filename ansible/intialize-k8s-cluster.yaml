@@ -2,6 +2,11 @@
   hosts: k8s_master_nodes
 
   tasks:
+    - name: Restart kublet service
+      ansible.builtin.service:
+        name: kubelet
+        state: restarted
+
     - name: Create a directory if it does not exist
       ansible.builtin.file:
         path: /home/vagrant/k8s-setup
