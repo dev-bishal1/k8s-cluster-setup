@@ -1,6 +1,5 @@
 - name: Initialize k8s cluster
   hosts: k8s_master_nodes
-  become: true
 
   tasks:
     - name: Create a directory if it does not exist
