@@ -1,0 +1,27 @@
+- name: Bootstrap server for k8s cluster
+  hosts: k8s_cluster
+  become: yes
+
+  tasks:
+    - name: Create ansible user
+      tags: always
+      ansible.builtin.user:
+        name: ansible
+        groups: sudo
+        home: /home/ansible
+        shell: /bin/bash
+
+    - name: Copy ansible public key
+      tags: always
+      ansible.posix.authorized_key:
+        user: ansible
+        state: present
+        key: "{{ lookup('file', '/home/netwon/.ssh/ansible.pub') }}"
+
+    - name: Add sudoers file for ansible user
+      tags: always
+      community.general.sudoers:
+        name: ansible
+        state: present
+        user: ansible
+        commands: ALL
