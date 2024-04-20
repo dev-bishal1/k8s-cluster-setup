@@ -7,7 +7,7 @@
       run_once: yes
       ansible.builtin.fetch:
         src: /home/vagrant/token.sh
-        dest: /home/netwon/Devops/k8s-cluster-setup
+        dest: /home/netwon/Devops/k8s-cluster-setup/
         flat: yes
       when: inventory_hostname == 'master'
 
