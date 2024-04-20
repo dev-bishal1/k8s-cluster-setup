@@ -9,21 +9,21 @@
 
     - name: Create a directory if it does not exist
       ansible.builtin.file:
-        path: /home/vagrant/k8s-setup
+        path: /home/ansible/k8s-setup
         state: directory
         mode: "0755"
-        owner: vagrant
+        owner: ansible
 
     - name: Copy k8s intialize file to the master k8s_master_nodes
       ansible.builtin.copy:
         src: ./file/kubeadm-init.sh
-        dest: /home/vagrant/k8s-setup/
-        owner: vagrant
+        dest: /home/ansible/k8s-setup/
+        owner: ansible
         mode: "0744"
 
     - name: Run the script that will intialize k8s cluster
       ansible.builtin.shell:
-        chdir: /home/vagrant/k8s-setup
+        chdir: /home/ansible/k8s-setup
         cmd: ./kubeadm-init.sh
       args:
         executable: /bin/bash

@@ -7,13 +7,13 @@
     - name: Copy change hostname script file to all the remote machine
       ansible.builtin.copy:
         src: ./file/change-hostname.sh
-        dest: /home/vagrant/k8s-setup
-        owner: vagrant
+        dest: /home/ansible/k8s-setup
+        owner: ansible
         mode: "0744"
 
     - name: Run hostname change script
       ansible.builtin.shell:
-        chdir: /home/vagrant/k8s-setup
+        chdir: /home/ansible/k8s-setup
         cmd: sudo ./change-hostname.sh {{ inventory_hostname }}
       args:
         executable: /bin/bash
