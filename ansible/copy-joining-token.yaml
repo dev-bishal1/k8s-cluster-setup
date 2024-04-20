@@ -1,0 +1,19 @@
+- name: Join worker node to the k8s cluster
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Fetch joining token from master node and store in ansible control node
+      run_once: yes
+      ansible.builtin.fetch:
+        src: /home/vagrant/token.sh
+        dest: /home/netwon/Devops/k8s-cluster-setup
+        flat: yes
+      when: inventory_hostname == 'master'
+
+    - name: Execute joining token command in worker node
+      ansible.builtin.script:
+        cmd: /home/netwon/Devops/k8s-cluster-setup/token.sh
+      args:
+        executable: /bin/bash
+      when: inventory_hostname != 'master'
